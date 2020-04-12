@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`styled-mixins Mixin should correctly render advanced mixin 1`] = `
+.c0 {
+  color: null;
+}
+
+<button
+  className="c0"
+/>
+`;
