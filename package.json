@@ -7,9 +7,6 @@
     "author": "Dumitrana Alinus <alin.designstudio@gmail.com>",
     "license": "MIT",
     "private": false,
-    "directories": {
-        "lib": "./dist"
-    },
     "files": [
         "./dist/**/*"
     ],

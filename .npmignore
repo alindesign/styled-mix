@@ -1,7 +1,7 @@
 node_modules
 src
 babel.config.js
-jest.config.jest
+jest.config.js
 tsconfig.json
 tsconfig.build.json
 yarn.lock
