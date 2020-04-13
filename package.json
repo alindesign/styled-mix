@@ -1,37 +1,43 @@
 {
-  "name": "styled-mix",
-  "version": "0.1.0",
-  "description": "Styled components mixins",
-  "main": "dist/index.js",
-  "repository": "https://github.com/alindesign/styled-mix.git",
-  "author": "Dumitrana Alinus <alin.designstudio@gmail.com>",
-  "license": "MIT",
-  "private": false,
-  "scripts": {
-    "test": "jest",
-    "test:watch": "yarn test --watch",
-    "build": "rimraf dist && tsc -p \"./tsconfig.build.json\"",
-    "prepare": "yarn build"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "@babel/preset-react": "^7.9.4",
-    "@babel/preset-typescript": "^7.9.0",
-    "@types/jest": "^25.2.1",
-    "@types/node": "^13.11.1",
-    "@types/react-test-renderer": "^16.9.2",
-    "@types/styled-components": "^5.0.1",
-    "csstype": "^2.6.10",
-    "jest": "^25.3.0",
-    "jest-styled-components": "^7.0.2",
-    "react": "^16.13.1",
-    "react-test-renderer": "^16.13.1",
-    "rimraf": "^3.0.2",
-    "styled-components": "^5.1.0",
-    "typescript": "^3.8.3"
-  },
-  "peerDependencies": {
-    "styled-components": "^5.1.0"
-  }
+    "name": "styled-mix",
+    "version": "0.1.0",
+    "description": "Styled components mixins",
+    "main": "dist/index.js",
+    "repository": "https://github.com/alindesign/styled-mix.git",
+    "author": "Dumitrana Alinus <alin.designstudio@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "directories": {
+        "lib": "./dist"
+    },
+    "files": [
+        "./dist/**/*"
+    ],
+    "scripts": {
+        "test": "jest",
+        "test:watch": "yarn test --watch",
+        "build": "rimraf dist && tsc -p \"./tsconfig.build.json\"",
+        "prepare": "yarn build"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "@babel/preset-react": "^7.9.4",
+        "@babel/preset-typescript": "^7.9.0",
+        "@types/jest": "^25.2.1",
+        "@types/node": "^13.11.1",
+        "@types/react-test-renderer": "^16.9.2",
+        "@types/styled-components": "^5.0.1",
+        "csstype": "^2.6.10",
+        "jest": "^25.3.0",
+        "jest-styled-components": "^7.0.2",
+        "react": "^16.13.1",
+        "react-test-renderer": "^16.13.1",
+        "rimraf": "^3.0.2",
+        "styled-components": "^5.1.0",
+        "typescript": "^3.8.3"
+    },
+    "peerDependencies": {
+        "styled-components": "^5.1.0"
+    }
 }
