@@ -19,21 +19,28 @@ export type MixinOptions = {
 };
 
 export class Mixin {
-    private props: MixinPropsType = {};
+    protected props: MixinPropsType = {};
     protected property?: keyof Properties | string;
     protected lookup?: MixinLookupType;
     protected defaultValue: any = null;
 
-    public constructor( {
-        props,
-        property,
-        lookup,
-        defaultValue
-    }: MixinOptions = {} ) {
-        this.props = props ?? {};
-        this.property = property ?? this.property;
-        this.lookup = lookup ?? this.lookup;
-        this.defaultValue = defaultValue ?? this.defaultValue;
+    public constructor( optionsOrProperty?: MixinOptions | MixinOptions[ 'property' ], lookup?: MixinOptions[ 'lookup' ], defaultValue?: MixinOptions[ 'defaultValue' ] ) {
+        let options: MixinOptions = {};
+
+        if ( optionsOrProperty ) {
+            if ( typeof optionsOrProperty !== 'string' ) {
+                options = optionsOrProperty;
+            } else {
+                options.property = optionsOrProperty;
+                options.lookup = lookup;
+                options.defaultValue = defaultValue;
+            }
+        }
+
+        this.props = options.props ?? {};
+        this.property = options.property ?? this.property;
+        this.lookup = options.lookup ?? this.lookup;
+        this.defaultValue = options.defaultValue ?? this.defaultValue;
 
         this.mixin = this.mixin.bind( this );
     }

@@ -31,8 +31,8 @@ describe( 'styled-mixins', () => {
             expect( mix3.lookupValue() ).toBeNull();
         } );
 
-        it( 'should correctly render a simple color mixin', () => {
-            const colorMixin = new Mixin( { property: 'color', lookup: [ 'c', 'color' ], defaultValue: '#222' } );
+        it( 'should correctly render a simple color mixin param call', () => {
+            const colorMixin = new Mixin( 'color', [ 'c', 'color' ], '#222' );
             const Button = styled.button<any>`${ mixins( colorMixin ) }`;
 
             const tree1 = renderer.create( <Button /> ).toJSON();
@@ -45,6 +45,32 @@ describe( 'styled-mixins', () => {
             expect( tree3 ).toHaveStyleRule( 'color', '#333' );
         } );
 
+        it( 'should correctly render a simple color mixin param & inline call', () => {
+            const Button = styled.button<any>`${ mixins( new Mixin( 'color', [ 'c', 'color' ], '#222' ) ) }`;
+
+            const tree1 = renderer.create( <Button /> ).toJSON();
+            expect( tree1 ).toHaveStyleRule( 'color', '#222' );
+
+            const tree2 = renderer.create( <Button color={ '#fff' } /> ).toJSON();
+            expect( tree2 ).toHaveStyleRule( 'color', '#fff' );
+
+            const tree3 = renderer.create( <Button c={ '#333' } /> ).toJSON();
+            expect( tree3 ).toHaveStyleRule( 'color', '#333' );
+        } );
+
+        it( 'should correctly render a simple color mixin object call', () => {
+            const colorMixin = new Mixin( { property: 'color', lookup: [ 'c', 'color' ], defaultValue: '#222' } );
+            const Button = styled.button<any>`${ mixins( colorMixin ) }`;
+
+            const tree1 = renderer.create( <Button /> ).toJSON();
+            expect( tree1 ).toHaveStyleRule( 'color', '#222' );
+
+            const tree2 = renderer.create( <Button color={ '#fff' } /> ).toJSON();
+            expect( tree2 ).toHaveStyleRule( 'color', '#fff' );
+
+            const tree3 = renderer.create( <Button c={ '#333' } /> ).toJSON();
+            expect( tree3 ).toHaveStyleRule( 'color', '#333' );
+        } );
 
         it( 'should correctly render advanced mixin', () => {
             class MyMixin extends Mixin {
@@ -89,6 +115,34 @@ describe( 'styled-mixins', () => {
 
             const tree7 = renderer.create( <Button m={ '8px' } /> ).toJSON();
             expect( tree7 ).toHaveStyleRule( 'margin', '8px' );
+        } );
+
+        it( 'should correctly render advanced call mixin', () => {
+            class MyMixin extends Mixin {
+                protected property = 'color';
+                protected lookup = [ 'c', 'color' ];
+
+                constructor( private match: string ) {
+                    super();
+                }
+
+                transform ( value: string ): string {
+                    return value === this.match ? '#fff' : '#000';
+                }
+            }
+
+            const Button = styled.button<any>`${ mixins( new MyMixin( '#222' ) ) }`;
+
+            const tree1 = renderer.create( <Button /> ).toJSON();
+
+            expect( tree1 ).not.toHaveStyleRule( 'color' );
+            expect( tree1 ).not.toHaveStyleRule( 'margin' );
+
+            const tree2 = renderer.create( <Button color='#123' /> ).toJSON();
+            expect( tree2 ).toHaveStyleRule( 'color', '#000' );
+
+            const tree3 = renderer.create( <Button color='#222' /> ).toJSON();
+            expect( tree3 ).toHaveStyleRule( 'color', '#fff' );
         } );
     } );
 } );

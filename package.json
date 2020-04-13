@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Styled components mixins",
   "main": "dist/index.js",
-  "repository": "https://github.com/alindesign/styled-mixins.git",
+  "repository": "https://github.com/alindesign/styled-mix.git",
   "author": "Dumitrana Alinus <alin.designstudio@gmail.com>",
   "license": "MIT",
   "private": false,
