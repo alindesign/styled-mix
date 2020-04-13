@@ -1,2 +1,7 @@
 node_modules
 src
+babel.config.js
+jest.config.jest
+tsconfig.json
+tsconfig.build.json
+yarn.lock

@@ -1,20 +1,20 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": [
-      "ES2015"
-    ],
-    "jsx": "react",
-    "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./",
-    "removeComments": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true
-  }
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "lib": [
+            "ES2015"
+        ],
+        "jsx": "react",
+        "declaration": true,
+        "outDir": "./dist",
+        "rootDir": "./",
+        "removeComments": true,
+        "strict": true,
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "baseUrl": "./",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true
+    }
 }

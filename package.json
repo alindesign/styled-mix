@@ -1,5 +1,5 @@
 {
-  "name": "styled-mixins",
+  "name": "styled-mix",
   "version": "0.0.1",
   "description": "Styled components mixins",
   "main": "dist/index.js",
@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "test:watch": "yarn test --watch",
-    "build": "tsc"
+    "build": "rimraf dist && tsc -p \"./tsconfig.build.json\"",
+    "prepare": "yarn build"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -26,6 +27,7 @@
     "jest-styled-components": "^7.0.2",
     "react": "^16.13.1",
     "react-test-renderer": "^16.13.1",
+    "rimraf": "^3.0.2",
     "styled-components": "^5.1.0",
     "typescript": "^3.8.3"
   },
